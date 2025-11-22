@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data-data Mahasiswa</title>
     <style>
-      * {
-        font-family: "Inter Tight", sans-serif;
-      }
-
       details[open] summary svg {
         transform: rotate(180deg);
       }
@@ -16,98 +12,285 @@
     <link rel="stylesheet" href="../../css/style.css" />
   </head>
   <body class="bg-neutral-100">
-    <main class="relative">
-      <header class="bg-white px-10 py-6 flex gap-10 justify-end">
-        <ul class="flex gap-10">
-          <li>
-            <a href="#">Scan</a>
-          </li>
-          <li>
-            <a href="#">Data</a>
-          </li>
-          <li>
-            <a href="#">Reports</a>
-          </li>
-        </ul>
-        <details class="relative">
-          <summary
-            class="flex items-center gap-1 font-semibold cursor-pointer list-none"
-          >
-            Admin
-            <svg
-              class="transition-transform icon w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M6 9l6 6 6-6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </summary>
-          <ul
-            class="absolute right-0 mt-2 bg-white rounded-md shadow-lg min-w-40 flex flex-col overflow-hidden"
-          >
-            <li class="px-4 py-2 text-sm hover:bg-gray-100">
-              <a href="#" class="link">Ganti Password</a>
-            </li>
-            <li class="px-4 py-2 text-sm hover:bg-gray-100">
-              <a href="#" class="link">Logout</a>
-            </li>
-          </ul>
-        </details>
-      </header>
-      <section class="m-10 p-10 bg-white rounded-3xl shadow">
-        <div class="flex justify-between items-center w-full">
-          <div class="flex gap-1 flex-col">
-            <h2 class="text-3xl font-semibold">Data Mahasiswa/i</h2>
-            <p class="text-lg opacity-75">Sumber: <a href="https://docs.google.com/spreadsheets/d/1do97jqZkQSGQxcCvgN_uJbiDEHiTNAnJT41MG1xbSEU/edit?usp=drive_link">Google Spreadsheets</a></p>
-          </div>
-          <input
-            id="search"
-            type="text"
-            class="bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-            placeholder="Search NIM, Prodi, Nama..."
+    <main class="flex justify-end">
+      <aside
+        class="fixed top-0 left-0 flex flex-col gap-4 w-[275px] h-screen p-6 bg-white border-r-2 border-neutral-100 z-10"
+      >
+        <div class="flex gap-4 items-center">
+          <img
+            src="/public/icons/STMIK-IM_Stroke_Version.png"
+            class="h-10"
+            alt="Logo Perguruan Tinggi"
           />
+          <h3 class="text-sm">
+            <span class="font-stack font-bold">Digital Invitation System</span>
+            <br />
+            by
+            <span class="text-xl font-playfair font-semibold">STMIK IM</span>
+          </h3>
         </div>
-        <table class="my-6 w-full">
-          <thead>
-            <tr>
-              <th class="text-left opacity-60 uppercase py-2 border-b border-neutral-400" data-sort="no">No</th>
-              <th class="text-left opacity-60 uppercase py-2 border-b border-neutral-400" data-sort="nim">NIM</th>
-              <th class="text-left opacity-60 uppercase py-2 border-b border-neutral-400" data-sort="prodi">Program Studi</th>
-              <th class="text-left opacity-60 uppercase py-2 border-b border-neutral-400" data-sort="nama">Nama</th>
-              <th class="text-left opacity-60 uppercase py-2 border-b border-neutral-400"></th>
-            </tr>
-          </thead>
-          <tbody id="table-body"></tbody>
-        </table>
-      </section>
+        <nav class="flex flex-col gap-2">
+          <a
+            href="#"
+            class="p-2 text-md flex gap-6 items-center opacity-75 hover:opacity-100 hover:bg-blue-50 hover:text-blue-500 transition"
+          >
+            <span class="text-2xl flex">
+              <ion-icon name="apps-outline"></ion-icon>
+            </span>
+            Dashboard
+          </a>
+          <a
+            href="#"
+            class="p-2 text-md flex gap-6 items-center opacity-75 hover:opacity-100 hover:bg-blue-50 hover:text-blue-500 transition"
+          >
+            <span class="text-2xl flex">
+              <ion-icon name="qr-code-outline"></ion-icon>
+            </span>
+            Scan
+          </a>
+          <a
+            href="#"
+            class="p-2 bg-blue-50 text-blue-500 rounded-md text-md flex gap-6 items-center"
+          >
+            <span class="text-2xl flex">
+              <ion-icon name="person-outline"></ion-icon>
+            </span>
+            Data
+          </a>
+          <a
+            href="#"
+            class="p-2 text-md flex gap-6 items-center opacity-75 hover:opacity-100 hover:bg-blue-50 hover:text-blue-500 transition"
+          >
+            <span class="text-2xl flex">
+              <ion-icon name="bar-chart-outline"></ion-icon>
+            </span>
+            Reports
+          </a>
+        </nav>
+      </aside>
+      <div class="relative ml-[275px] flex-1">
+        <header
+          class="fixed top-0 right-0 w-[calc(100%-275px)] bg-white border-b-2 border-neutral-100 shadow px-5 py-5 flex gap-10 justify-between items-center"
+        >
+          <button
+            class="flex border border-neutral-100 p-2 text-2xl shadow-sm rounded-lg"
+          >
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+          <details class="relative">
+            <summary
+              class="flex items-center gap-1 font-semibold cursor-pointer list-none"
+            >
+              Admin
+              <svg
+                class="transition-transform icon w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </summary>
+            <ul
+              class="absolute right-0 mt-2 bg-white rounded-md shadow-lg min-w-40 flex flex-col overflow-hidden"
+            >
+              <li class="px-4 py-2 text-sm hover:bg-gray-100">
+                <a href="#" class="link">Ganti Password</a>
+              </li>
+              <li class="px-4 py-2 text-sm hover:bg-gray-100">
+                <a href="#" class="link">Logout</a>
+              </li>
+            </ul>
+          </details>
+        </header>
+        <section
+          class="m-5 mt-28 p-8 bg-white border border-neutral-200 rounded-3xl shadow"
+        >
+          <div class="flex justify-between items-center w-full">
+            <div class="flex gap-1 flex-col">
+              <h2 class="text-3xl font-semibold">Data Mahasiswa/i</h2>
+              <p class="text-lg opacity-75">
+                Sumber:
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1do97jqZkQSGQxcCvgN_uJbiDEHiTNAnJT41MG1xbSEU/edit?usp=drive_link"
+                >
+                  Google Spreadsheets
+                </a>
+              </p>
+            </div>
+            <input
+              id="search"
+              type="text"
+              class="bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+              placeholder="Search NIM, Prodi, Nama..."
+            />
+          </div>
+          <div
+            class="my-6 p-6 bg-white border-2 border-neutral-200 rounded-2xl shadow-md"
+          >
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th
+                    class="text-left font-medium opacity-60 uppercase py-2 border-b border-neutral-400"
+                    data-sort="no"
+                  >
+                    NO
+                  </th>
+                  <th
+                    class="text-left font-medium opacity-60 uppercase py-2 border-b border-neutral-400"
+                    data-sort="nim"
+                  >
+                    NIM
+                  </th>
+                  <th
+                    class="text-left font-medium opacity-60 uppercase py-2 border-b border-neutral-400"
+                    data-sort="prodi"
+                  >
+                    Program Studi
+                  </th>
+                  <th
+                    class="text-left font-medium opacity-60 uppercase py-2 border-b border-neutral-400"
+                    data-sort="nama"
+                  >
+                    Nama
+                  </th>
+                  <th class="py-2 border-b border-neutral-400"></th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
+
+    <!-- Modal Alert -->
+    <div
+      id="modal"
+      class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
+    >
+      <!-- Modal Content -->
+      <div class="bg-white w-[90%] max-w-md p-6 rounded-2xl shadow-xl relative">
+        <h2 id="modal-title" class="text-xl font-semibold mb-3"></h2>
+        <p id="modal-content" class="text-neutral-600 mb-6"></p>
+
+        <div class="flex justify-end gap-3">
+          <button
+            onclick="closeModal()"
+            class="px-4 py-2 rounded-lg border border-blue-500 bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-blue-50 transition"
+          >
+            Cancel
+          </button>
+
+          <button
+            id="modal-action"
+            class="px-4 py-2 rounded-lg bg-red-500 text-red-100"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Form -->
+    <div
+      id="edit-modal"
+      class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
+    >
+      <div class="bg-white w-[90%] max-w-md p-6 rounded-2xl shadow-xl">
+        <h2 class="text-xl font-semibold mb-4">Edit Mahasiswa</h2>
+
+        <form id="edit-form" class="flex flex-col gap-4">
+          <input type="hidden" id="edit-index" />
+
+          <div>
+            <label class="text-sm font-bold uppercase opacity-60">NIM</label>
+            <input
+              id="edit-nim"
+              type="text"
+              class="mt-1 w-full border border-neutral-200 rounded-lg p-2 focus:ring focus:ring-blue-300 shadow"
+            />
+          </div>
+
+          <div>
+            <label class="text-sm font-bold uppercase opacity-60">
+              Program Studi
+            </label>
+            <input
+              id="edit-prodi"
+              type="text"
+              class="mt-1 w-full border border-neutral-200 rounded-lg p-2 focus:ring focus:ring-blue-300 shadow"
+            />
+          </div>
+
+          <div>
+            <label class="text-sm font-bold uppercase opacity-60">
+              Nama Mahasiswa
+            </label>
+            <input
+              id="edit-nama"
+              type="text"
+              class="mt-1 w-full border border-neutral-200 rounded-lg p-2 focus:ring focus:ring-blue-300 shadow"
+            />
+          </div>
+
+          <div class="flex justify-end gap-3 pt-4">
+            <button
+              type="button"
+              onclick="closeEditModal()"
+              class="px-4 py-2 rounded-lg border border-red-500 bg-red-100 text-red-500 hover:bg-red-500 hover:text-red-50 transition"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 rounded-lg border bg-blue-500 text-blue-100"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <script>
+      // Urusan Table
       const data = [
         {
           no: 1,
-          nim: "2211001",
+          nim: "362379011",
           prodi: "Teknik Informatika",
-          nama: "Kevin Saputra",
+          nama: "Muhammad Cavin Hartono Putra",
         },
         {
           no: 2,
-          nim: "2211002",
+          nim: "352301001",
           prodi: "Sistem Informasi",
-          nama: "Aulia Rahman",
+          nama: "RAYHAN FITROH RHOMADHONI ERNANDA",
         },
         {
           no: 3,
-          nim: "2211003",
+          nim: "362379008",
           prodi: "Teknik Informatika",
-          nama: "Rian Firmansyah",
+          nama: "Fauzi Riza Wahyudi",
         },
-        { no: 4, nim: "2211004", prodi: "DKV", nama: "Bima Pratama" },
+        {
+          no: 4,
+          nim: "352301002",
+          prodi: "Sistem Informasi",
+          nama: "Mochammad Fauzan Zulkarnaen",
+        },
+        {
+          no: 5,
+          nim: "382301014",
+          prodi: "Manajemen",
+          nama: "Elizabeth Jessica Harisalim Natasha Tambunan",
+        },
       ];
 
       let sortState = { column: null, asc: true };
@@ -125,7 +308,27 @@
         <td class="py-3 border-b border-neutral-200">${mhs.nim}</td>
         <td class="py-3 border-b border-neutral-200">${mhs.prodi}</td>
         <td class="py-3 border-b border-neutral-200">${mhs.nama}</td>
-        <td class="py-3 font-medium border-b border-neutral-200">Edit Delete Generate</td>
+        <td class="py-3 font-medium border-b border-neutral-200">
+          <div class="flex gap-2 justify-end">
+            <button onclick="openEditModal(${mhs.no - 1})"
+              class="text-2xl border bg-orange-100 text-orange-400 border-orange-400 rounded-lg hover:bg-orange-400 hover:text-orange-50 transition shadow p-2 flex"
+            >
+              <ion-icon name="create-outline"></ion-icon>
+            </button>
+            <button onclick="openModal({
+                title: 'Hapus Data',
+                content: 'Apakah Anda yakin ingin menghapus ${mhs.nama}?',
+                action: () => { closeModal(); alert('Delete clicked'); }
+              })"
+              class="text-2xl border bg-red-100 text-red-500 border-red-500 rounded-lg hover:bg-red-500 hover:text-red-50 transition shadow p-2 flex"
+            >
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <button class="text-2xl border bg-emerald-50 text-emerald-500 border-emerald-500 rounded-lg hover:bg-emerald-500 hover:text-emerald-50 transition shadow p-2 flex">
+              <ion-icon name="qr-code-outline"></ion-icon>
+            </button>
+          </div>
+        </td>
       `;
           tbody.appendChild(tr);
         });
@@ -173,6 +376,74 @@
       searchInput.addEventListener("input", filterData);
 
       renderTable(data);
+
+      // Urusan Pop-up
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalContent = document.getElementById("modal-content");
+      const modalAction = document.getElementById("modal-action");
+
+      function openModal({ title, content, action }) {
+        modalTitle.textContent = title;
+        modalContent.textContent = content;
+
+        modalAction.onclick = action;
+
+        modal.classList.remove("hidden");
+      }
+
+      function closeModal() {
+        modal.classList.add("hidden");
+      }
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Pop-up: Form
+      const editModal = document.getElementById("edit-modal");
+
+      function openEditModal(index) {
+        const mhs = data[index];
+
+        document.getElementById("edit-index").value = index;
+        document.getElementById("edit-nim").value = mhs.nim;
+        document.getElementById("edit-prodi").value = mhs.prodi;
+        document.getElementById("edit-nama").value = mhs.nama;
+
+        editModal.classList.remove("hidden");
+      }
+
+      function closeEditModal() {
+        editModal.classList.add("hidden");
+      }
+
+      // Close on background click
+      editModal.addEventListener("click", (e) => {
+        if (e.target === editModal) closeEditModal();
+      });
+
+      // Update data setelah submit
+      document.getElementById("edit-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const index = document.getElementById("edit-index").value;
+
+        data[index].nim = document.getElementById("edit-nim").value;
+        data[index].prodi = document.getElementById("edit-prodi").value;
+        data[index].nama = document.getElementById("edit-nama").value;
+
+        closeEditModal();
+        renderTable(data);
+      });
     </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

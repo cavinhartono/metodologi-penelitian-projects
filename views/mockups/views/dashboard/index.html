@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Dashboard</title>
+  </head>
+  <body class="bg-neutral-100">
+    <main class="flex justify-end">
+      <aside
+        class="fixed top-0 left-0 flex flex-col gap-4 w-[275px] h-screen p-6 bg-white border-r-2 border-neutral-100 z-10"
+      >
+        <div class="flex gap-4 items-center">
+          <img
+            src="/public/icons/STMIK-IM_Stroke_Version.png"
+            class="h-10"
+            alt="Logo Perguruan Tinggi"
+          />
+          <h3 class="text-sm">
+            <span class="font-stack font-bold">Digital Invitation System</span>
+            <br />
+            by
+            <span class="text-xl font-playfair font-semibold">STMIK IM</span>
+          </h3>
+        </div>
+        <nav class="flex flex-col gap-2">
+          <a
+            href="#"
+            class="p-2 text-md flex gap-6 items-center opacity-75 hover:opacity-100 hover:bg-blue-50 hover:text-blue-500 transition"
+          >
+            <span class="text-2xl flex">
+              <ion-icon name="apps-outline"></ion-icon>
+            </span>
+            Dashboard
+          </a>
+          <a
+            href="#"
+            class="p-2 text-md flex gap-6 items-center opacity-75 hover:opacity-100 hover:bg-blue-50 hover:text-blue-500 transition"
+          >
+            <span class="text-2xl flex">
+              <ion-icon name="qr-code-outline"></ion-icon>
+            </span>
+            Scan
+          </a>
+          <a
+            href="#"
+            class="p-2 bg-blue-50 text-blue-500 rounded-md text-md flex gap-6 items-center"
+          >
+            <span class="text-2xl flex">
+              <ion-icon name="person-outline"></ion-icon>
+            </span>
+            Data
+          </a>
+          <a
+            href="#"
+            class="p-2 text-md flex gap-6 items-center opacity-75 hover:opacity-100 hover:bg-blue-50 hover:text-blue-500 transition"
+          >
+            <span class="text-2xl flex">
+              <ion-icon name="bar-chart-outline"></ion-icon>
+            </span>
+            Reports
+          </a>
+        </nav>
+      </aside>
+      <div class="relative ml-[275px] flex-1">
+        <header
+          class="fixed top-0 right-0 w-[calc(100%-275px)] bg-white border-b-2 border-neutral-100 shadow px-5 py-5 flex gap-10 justify-between items-center"
+        >
+          <button
+            class="flex border border-neutral-100 p-2 text-2xl shadow-sm rounded-lg"
+          >
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+          <details class="relative">
+            <summary
+              class="flex items-center gap-1 font-semibold cursor-pointer list-none"
+            >
+              Admin
+              <svg
+                class="transition-transform icon w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </summary>
+            <ul
+              class="absolute right-0 mt-2 bg-white rounded-md shadow-lg min-w-40 flex flex-col overflow-hidden"
+            >
+              <li class="px-4 py-2 text-sm hover:bg-gray-100">
+                <a href="#" class="link">Ganti Password</a>
+              </li>
+              <li class="px-4 py-2 text-sm hover:bg-gray-100">
+                <a href="#" class="link">Logout</a>
+              </li>
+            </ul>
+          </details>
+        </header>
+        <section class="m-5 mt-28">
+          <div
+            class="p-8 bg-white border border-neutral-200 rounded-3xl shadow"
+          >
+            <div class="flex gap-1 flex-col">
+              <h2 class="text-3xl font-semibold">Dashboard</h2>
+              <p class="text-lg opacity-75">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              </p>
+            </div>
+            <div class="mt-6 mb-3 flex gap-6 justify-between w-full">
+              <div
+                class="p-4 bg-white border border-neutral-200 rounded-3xl shadow w-full"
+              >
+                <ul class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-md">
+                  <li class="col-span-2 p-4 bg-blue-200 h-32 rounded-xl">
+                    <p class="uppercase opacity-60">Total Peserta</p>
+                    <h2 class="text-2xl my-3 font-semibold">41 Mahasiswa/i</h2>
+                  </li>
+                  <li class="col-span-2 p-4 bg-green-200 h-32 rounded-xl">
+                    <p class="uppercase opacity-60">Total Hadir</p>
+                    <h2 class="text-2xl my-3 font-semibold">0 Peserta</h2>
+                  </li>
+                  <li class="col-span-2 p-4 bg-fuchsia-200 h-32 rounded-xl">
+                    <p class="uppercase opacity-60">Persentase</p>
+                    <h2 class="text-2xl my-3 font-semibold">0.00%</h2>
+                  </li>
+                  <li class="col-span-2 p-4 bg-red-200 h-32 rounded-xl">
+                    <p class="uppercase opacity-60">Spreadsheets</p>
+                    <h2 class="text-2xl my-3 font-semibold">Connected</h2>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="p-4 bg-white border border-neutral-200 rounded-3xl shadow w-full"
+              >
+                <table class="w-full">
+                  <thead>
+                    <tr>
+                      <th
+                        class="text-left font-medium opacity-60 uppercase py-2 border-b border-neutral-400"
+                      >
+                        Nama
+                      </th>
+                      <th
+                        class="text-left font-medium opacity-60 uppercase py-2 border-b border-neutral-400"
+                      >
+                        Program Studi
+                      </th>
+                      <th
+                        class="text-left font-medium opacity-60 uppercase py-2 border-b border-neutral-400"
+                      >
+                        Waktu
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
